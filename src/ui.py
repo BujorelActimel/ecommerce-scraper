@@ -1,7 +1,7 @@
-import customtkinter as ctk # type: ignore
+import customtkinter as ctk
 
-from CTkMessagebox import CTkMessagebox # type: ignore
-from pandastable import Table # type: ignore
+from CTkMessagebox import CTkMessagebox
+from pandastable import Table
 from service import retrieve_data, export_data, show_graph, show_matrix, on_close
 
 ctk.set_appearance_mode("System")

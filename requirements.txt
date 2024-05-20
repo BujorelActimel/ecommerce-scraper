@@ -1,8 +1,9 @@
 customtkinter
 pandastable
 requests
-beautifulsoup4
 pandas
 matplotlib
 CTkMessagebox
 OpenPyXL
+selenium
+webdriver_manager

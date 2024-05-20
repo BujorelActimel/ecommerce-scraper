@@ -1,33 +1,36 @@
-import requests # type: ignore
+import requests
 import csv
-import pandas as pd # type: ignore
-import matplotlib.pyplot as plt # type: ignore
+import pandas as pd
+import matplotlib.pyplot as plt
 
-from bs4 import BeautifulSoup # type: ignore
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
 
-# Scrape the products name and price from the given URL
 def retrieve_data(url: str):
-    response = requests.get(url)
-    soup = BeautifulSoup(response.text, 'html.parser')
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-    product_names = [element.text.strip() for element in soup.find_all('a', class_='offerboxtitle')]
-    product_prices = [element.text.strip() for element in soup.find_all('span', id=lambda value: value and value.startswith('offerprice-'))]
+    driver.get(url)
+
+    driver.implicitly_wait(10)
+
+    product_names = [element.text for element in driver.find_elements(By.CSS_SELECTOR, 'a.offerboxtitle')]
+    product_prices = [element.text for element in driver.find_elements(By.CSS_SELECTOR, 'span[id^="offerprice-"]')]
 
     res = list(zip(product_names, product_prices))
 
-    # Write the results to a CSV file
     with open('request-results.csv', 'w', newline='') as file:
         writer = csv.writer(file)
         writer.writerow(["Product Name", "Product Price"])
         writer.writerows(res)
 
-# Export the data from the given file to a excel file
+    driver.quit()
 def export_data(export_file: str, data_path: str):
     # ISO-8859-1 for the special characters
     data = pd.read_csv(data_path, encoding='ISO-8859-1') 
     data.to_excel(f"{export_file}.xlsx", index=False)
 
-# Make a bar graph of the product prices
 def show_graph():
     data = pd.read_csv('request-results.csv', encoding='ISO-8859-1')
 
