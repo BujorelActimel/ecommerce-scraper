@@ -10,9 +10,9 @@ Alternatively, you can clone the repository:
 
 1. Clone the repository:
 
-    `git clone https://github.com/yourusername/yourrepository.git`
+    `git clone https://github.com/BujorelActimel/ecommerce-scraper.git`
 
-2. Navigate to the project directory:
+2. Navigate to where you saved the project directory:
     `cd path/to/repository`
 
 Then, follow these steps:
@@ -23,6 +23,7 @@ Then, follow these steps:
 4. Activate the virtual environment:
     - On Windows, run: `.\venv\Scripts\activate`
     - On Unix or MacOS, run: `source venv/bin/activate`
+    > **Note:** If you use PowerShell on Windows and cannot activate the virtual environment, use this command: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` and then try to activate it.
 
 5. Install the requirements:
     `pip install -r requirements.txt`
