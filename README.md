@@ -1,6 +1,6 @@
 # E-Commerce Scraper
 
-This is a Python application that scrapes e-commerce data and provides various functionalities like showing the data in a graph or matrix form, and exporting the data.
+This is a Python application that scrapes e-commerce data from https://www.laptopsdirect.co.uk/ct/monitors-and-projectors/monitors/curved and provides various functionalities like showing the data in a graph or matrix form, and exporting the data.
 
 ## Installation
 
@@ -13,7 +13,7 @@ Alternatively, you can clone the repository:
     `git clone https://github.com/yourusername/yourrepository.git`
 
 2. Navigate to the project directory:
-    `cd path/to/project`
+    `cd path/to/repository`
 
 Then, follow these steps:
 
@@ -41,3 +41,7 @@ Run the main script:
 - Show graph: Displays the data in a graph form.
 - Show matrix: Displays the data in a matrix form.
 - Export data: Exports the data to a CSV file.
+
+## Cross Platform
+
+The app has been tested on a Windows 11 machine and also on Ubuntu 22.04 via Windows Subsystem for Linux (WSL).
