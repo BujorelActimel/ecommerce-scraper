@@ -1,0 +1,7 @@
+customtkinter
+pandastable
+requests
+beautifulsoup4
+pandas
+matplotlib
+CTkMessagebox
