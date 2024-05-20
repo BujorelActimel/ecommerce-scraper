@@ -1,6 +1,5 @@
 customtkinter
 pandastable
-requests
 pandas
 matplotlib
 CTkMessagebox
