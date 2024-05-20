@@ -40,7 +40,7 @@ Run the main script:
 - Retrieve data: Fetches the e-commerce data.
 - Show graph: Displays the data in a graph form.
 - Show matrix: Displays the data in a matrix form.
-- Export data: Exports the data to a CSV file.
+- Export data: Exports the data to an Excel file.
 
 ## Cross Platform
 
