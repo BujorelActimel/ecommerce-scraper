@@ -8,33 +8,33 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
 def retrieve_data(url: str):
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    DP_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-    driver.get(url)
+    DP_driver.get(url)
 
-    driver.implicitly_wait(10)
+    DP_driver.implicitly_wait(10)
 
-    product_names = [element.text for element in driver.find_elements(By.CSS_SELECTOR, 'a.offerboxtitle')]
-    product_prices = [element.text for element in driver.find_elements(By.CSS_SELECTOR, 'span[id^="offerprice-"]')]
+    DP_product_names = [element.text for element in DP_driver.find_elements(By.CSS_SELECTOR, 'a.offerboxtitle')]
+    DP_product_prices = [element.text for element in DP_driver.find_elements(By.CSS_SELECTOR, 'span[id^="offerprice-"]')]
 
-    res = list(zip(product_names, product_prices))
+    DP_res = list(zip(DP_product_names, DP_product_prices))
 
-    with open('request-results.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(["Product Name", "Product Price"])
-        writer.writerows(res)
+    with open('request-results.csv', 'w', newline='') as DP_file:
+        DP_writer = csv.writer(DP_file)
+        DP_writer.writerow(["Product Name", "Product Price"])
+        DP_writer.writerows(DP_res)
 
-    driver.quit()
+    DP_driver.quit()
 def export_data(export_file: str, data_path: str):
     # ISO-8859-1 for the special characters
-    data = pd.read_csv(data_path, encoding='ISO-8859-1') 
-    data.to_excel(f"{export_file}.xlsx", index=False)
+    DP_data = pd.read_csv(data_path, encoding='ISO-8859-1') 
+    DP_data.to_excel(f"{export_file}.xlsx", index=False)
 
 def show_graph():
-    data = pd.read_csv('request-results.csv', encoding='ISO-8859-1')
+    DP_data = pd.read_csv('request-results.csv', encoding='ISO-8859-1')
 
     plt.figure(figsize=(10, 5))
-    plt.bar(data['Product Name'], data['Product Price'])
+    plt.bar(DP_data['Product Name'], DP_data['Product Price'])
     plt.title('Product Prices')
     plt.xlabel('Product Name')
     plt.ylabel('Product Price')
@@ -43,8 +43,8 @@ def show_graph():
     plt.show()
 
 def show_matrix():
-    data = pd.read_csv('request-results.csv', encoding='ISO-8859-1')
-    return data
+    DP_data = pd.read_csv('request-results.csv', encoding='ISO-8859-1')
+    return DP_data
 
 def on_close(window):
     plt.close('all')

@@ -1,7 +1,7 @@
 from ui import create_ui
 
-url = "https://www.laptopsdirect.co.uk/ct/monitors-and-projectors/monitors/curved"
+DP_url = "https://www.laptopsdirect.co.uk/ct/monitors-and-projectors/monitors/curved"
 
 if __name__ == "__main__":
-    app = create_ui(url)
-    app.mainloop()
+    DP_app = create_ui(DP_url)
+    DP_app.mainloop()
