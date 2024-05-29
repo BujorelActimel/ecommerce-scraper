@@ -29,7 +29,7 @@ def export_and_notify(entry: ctk.CTkEntry):
     DP_folder_selected = ctk.filedialog.askdirectory()
 
     try:
-        export_data(f"{DP_folder_selected}/{entry.get()}", "request-results.csv")
+        export_data(f"{DP_folder_selected}/{entry.get().strip()}", "request-results.csv")
     except FileNotFoundError:
         CTkMessagebox(
             title="Export error",
