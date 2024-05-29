@@ -104,7 +104,7 @@ def create_ui(url: str):
     DP_matrix_button = ctk.CTkButton(DP_main_window, text="Show matrix", command=lambda: show_matrix_and_notify(DP_main_window))
     DP_matrix_button.grid(row=2, column=2, padx=10, pady=20)
 
-    DP_export_button = ctk.CTkButton(DP_main_window, text="Export data", command=lambda: export_and_notify(entry))
+    DP_export_button = ctk.CTkButton(DP_main_window, text="Export data", command=lambda: export_and_notify(DP_entry))
     DP_export_button.grid(row=3, column=0, padx=20, pady=20)
 
     DP_entry = ctk.CTkEntry(DP_main_window, placeholder_text="Export file name")
